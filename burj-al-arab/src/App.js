@@ -11,6 +11,7 @@ import Book from './components/Book/Book';
 import Header from './components/Header/Header';
 import { createContext } from 'react';
 import { useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 export const UserContext = createContext();
 function App() {
  const [loginInUser,setLoginInUser] = useState({});
@@ -27,9 +28,9 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/book/:bedType">
+            <PrivateRoute path="/book/:bedType">
               <Book />
-            </Route>
+            </PrivateRoute>
             <Route exact path="/">
               <Home />
             </Route>
